@@ -13,7 +13,8 @@ class ISSLocation extends React.Component{
 
         this.state = {
             ISSlocation: [0, 0],
-            pastISSLocation: []
+            pastISSLocation: [],
+            mapDimensions: []
         }
     }
     TrackISS = () => {
@@ -23,7 +24,7 @@ class ISSLocation extends React.Component{
             this.state.pastISSLocation.push(this.ISSLocation)
             const latitude = parseInt(data.iss_position.latitude, 10)
             const longitude = parseInt(data.iss_position.longitude, 10)
-            this.setState({ISSlocation: [latitude, longitude]})
+            this.setState({ISSlocation: [longitude, latitude]})
             console.log(this.state.ISSlocation)
         })
         .catch(err => console.log(err))
@@ -35,24 +36,38 @@ class ISSLocation extends React.Component{
             () => this.TrackISS(),
             10000
         );
+        const map = document.getElementsByClassName('rsm-sphere');
+        this.setState({mapDimensions: [map.clientWidth, map.clientHeight]})
     };
 
     componentWillUnmount() {
         clearInterval(this.intervalID);
     };
 
+    handleClick = (e) => {
+        e.preventDefault();
+        console.log(e.clientX + " " + e.clientY);
+    };
+
     render(){
         return (
-            <div className="map">
-                <ComposableMap      
+            <div className="map" >
+                <ComposableMap  
                 projectionConfig={{
                     rotate: [-10, 0, 0],
                     scale: 147
                 }}>
-                    <Sphere stroke="#E4E5E6" strokeWidth={1} fill="#2da1db" />
+                    <Sphere stroke="#E4E5E6" strokeWidth={1} fill="#2da1db" onClick={this.handleClick}/>
                     <Geographies geography={geoUrl} >
                         {({ geographies }) =>
-                        geographies.map(geo => <Geography key={geo.rsmKey} geography={geo} fill="#5cd97d" stroke="#fff6ec"/>)
+                            geographies.map(geo => 
+                                <Geography 
+                                    key={geo.rsmKey} 
+                                    geography={geo} 
+                                    fill="#5cd97d" 
+                                    stroke="#fff6ec" 
+                                    onClick={this.handleClick}/>
+                            )
                         }
                     </Geographies>
                     <Marker key={"ISS"} coordinates={this.state.ISSlocation} >

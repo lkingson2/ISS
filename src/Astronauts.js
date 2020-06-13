@@ -11,9 +11,7 @@ class Astronauts extends React.Component{
     }
 
     componentWillMount(){
-        console.log(this.state.astronauts)
         this.getAstronauts()
-        console.log(this.state.astronauts)
     }
 
     getAstronauts = () => {
