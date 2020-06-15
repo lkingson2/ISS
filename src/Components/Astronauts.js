@@ -10,7 +10,7 @@ class Astronauts extends React.Component{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getAstronauts()
     }
 

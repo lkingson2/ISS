@@ -21,7 +21,7 @@ I use a react-simple-maps to visualize the current location of the ISS in real t
 
 ### Future Steps
 
-I have a few ideas for ways to build on application
+I have a few ideas for ways to build on this web app
 
 - Have a form where the user can input a latitude and longtude coordinate to see when the ISS will visible in that location.
 - Have the map be clickable allowing the user to add markers to see when the ISS will be visible in that location
