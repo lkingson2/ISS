@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/KaplanLabs/static/css/main.052d0e75.chunk.css",
-    "main.js": "/KaplanLabs/static/js/main.81f92541.chunk.js",
-    "main.js.map": "/KaplanLabs/static/js/main.81f92541.chunk.js.map",
+    "main.js": "/KaplanLabs/static/js/main.a4abfe2b.chunk.js",
+    "main.js.map": "/KaplanLabs/static/js/main.a4abfe2b.chunk.js.map",
     "runtime-main.js": "/KaplanLabs/static/js/runtime-main.c36de573.js",
     "runtime-main.js.map": "/KaplanLabs/static/js/runtime-main.c36de573.js.map",
     "static/js/2.cd82867e.chunk.js": "/KaplanLabs/static/js/2.cd82867e.chunk.js",
     "static/js/2.cd82867e.chunk.js.map": "/KaplanLabs/static/js/2.cd82867e.chunk.js.map",
     "index.html": "/KaplanLabs/index.html",
-    "precache-manifest.fa00f85c920280e57921bb580026aa0a.js": "/KaplanLabs/precache-manifest.fa00f85c920280e57921bb580026aa0a.js",
+    "precache-manifest.6ee7ca70f6d492720bda12fb073a1835.js": "/KaplanLabs/precache-manifest.6ee7ca70f6d492720bda12fb073a1835.js",
     "service-worker.js": "/KaplanLabs/service-worker.js",
     "static/css/main.052d0e75.chunk.css.map": "/KaplanLabs/static/css/main.052d0e75.chunk.css.map",
     "static/js/2.cd82867e.chunk.js.LICENSE.txt": "/KaplanLabs/static/js/2.cd82867e.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.c36de573.js",
     "static/js/2.cd82867e.chunk.js",
     "static/css/main.052d0e75.chunk.css",
-    "static/js/main.81f92541.chunk.js"
+    "static/js/main.a4abfe2b.chunk.js"
   ]
 }
