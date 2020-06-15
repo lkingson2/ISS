@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComposableMap, Geographies, Geography, Marker, Sphere } from "react-simple-maps";
-import {ReactComponent as SpaceShip} from './space-shuttle.svg'
+import {ReactComponent as SpaceShip} from '../Media/space-shuttle.svg'
 
 import './ISS.css'
 
@@ -16,8 +16,7 @@ class ISSLocation extends React.Component{
             pastISSLocation: [],
             mapDimensions: [],
             mapCenter: [],
-            futureISSLocation: [],
-            longitudeScale: 55
+            futureISSLocation: []
         }
     }
     TrackISS = () => {
@@ -25,8 +24,13 @@ class ISSLocation extends React.Component{
         .then(res => res.json())
         .then(data => {
             this.state.pastISSLocation.push(this.ISSLocation)
-            const latitude = parseInt(data.iss_position.latitude, 10);
-            const longitude = parseInt(data.iss_position.longitude, 10) - this.state.longitudeScale;
+            const latitude = parseFloat(data.iss_position.latitude, 10);
+            var longitude = parseFloat(data.iss_position.longitude, 10);
+            // Longtitude coordinates are mapped to the wrong location roughly 55 degrees to the right
+            // Hacky work around to temporarily fix problem.
+            if(longitude>= -125){
+                longitude-=55;
+            }
             this.setState({ISSlocation: [longitude, latitude]})
             console.log(this.state.ISSlocation)
         })
@@ -61,8 +65,8 @@ class ISSLocation extends React.Component{
             <div className="map" >
                 <ComposableMap  
                 projectionConfig={{
-                    rotate: [-10, 0, 0],
-                    scale: 147
+                    scale: 147,
+                    rotate: [0, 0, 0]
                 }}>
                     <Sphere stroke="#E4E5E6" strokeWidth={1} fill="#2da1db" onClick={this.handleClick}/>
                     <Geographies geography={geoUrl} >
