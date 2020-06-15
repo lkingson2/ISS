@@ -27,7 +27,7 @@ I have a few ideas for ways to build on this web app
 
 - Have a form where the user can input a latitude and longtude coordinate to see when the ISS will visible in that location.
 - Have the map be clickable allowing the user to add markers to see when the ISS will be visible in that location
-- Scrape websites (NASA, SpaceX, etc) and provide information about future launches and space missions. 
+- Create a timeline of future space missions over the next 10 years. 
 
 ### Quick View
 
