@@ -31,4 +31,4 @@ I have a few ideas for ways to build on this web app
 
 ### Quick View
 
-![alt text](https://github.com/lkingson2/KaplanLabs/blob/KaplanLabs/public/QuickView.png?raw=true)
+![Alt text](/public/QuickView.png?raw=true "Title")
