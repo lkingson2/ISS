@@ -1,8 +1,5 @@
 import React from 'react';
 import { ComposableMap, Geographies, Geography, Marker, Sphere } from "react-simple-maps";
-// import {ReactComponent as SpaceShip} from '../Media/space-shuttle.svg'
-// import SpaceShipPNG from '../Media/space-shuttle.png';
-
 import './ISS.css'
 
 
@@ -28,7 +25,7 @@ class ISSLocation extends React.Component{
         .then(data => {
             this.state.pastISSLocation.push(this.ISSLocation)
             const latitude = parseFloat(data.iss_position.latitude, 10);
-            var longitude = parseFloat(data.iss_position.longitude, 10);
+            const longitude = parseFloat(data.iss_position.longitude, 10);
             this.setState({ISSlocation: [longitude, latitude]})
             console.log(this.state.ISSlocation)
         })
@@ -81,7 +78,6 @@ class ISSLocation extends React.Component{
                     {
                         <Marker key={"ISS"} coordinates={this.state.ISSlocation} >
                             <circle r={10} fill="black" stroke="#fff" strokeWidth={2} />
-                            {/* <SpaceShip/> */}
                         </Marker>
                     }
                 </ComposableMap>

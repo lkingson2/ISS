@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import Astronauts from './Components/Astronauts'
 import ISSLocation from './Components/ISSLocation';
+import './App.css';
 
 function App() {
   return (

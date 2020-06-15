@@ -11,15 +11,15 @@
 
 .map {
   float: left;
-  width: 60%;
-  height: 60%;
+  width: 55%;
+  height: 55%;
   border: black;
   border-width: 2px;
 }
 
 .space-people{
   float: left;
-  width: 40%;
+  width: 45%;
   height:100%;
   border: black;
   border-width: 2px;
