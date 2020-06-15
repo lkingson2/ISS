@@ -27,7 +27,7 @@ class Astronauts extends React.Component{
         return(
             <div className="space-people">
                 <div className="list">
-                    <h2>People at ISS</h2>
+                    <h2>Astronauts at ISS</h2>
                     <ul>
                         {   
                             this.state.astronauts.map((astronaut, idx) => {

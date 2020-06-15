@@ -39,6 +39,5 @@ li a:hover {
 }
 
 .list{
-  display: table-cell;
   vertical-align: top;
 }

@@ -14,7 +14,10 @@ class ISSLocation extends React.Component{
         this.state = {
             ISSlocation: [0, 0],
             pastISSLocation: [],
-            mapDimensions: []
+            mapDimensions: [],
+            mapCenter: [],
+            futureISSLocation: [],
+            longitudeScale: 55
         }
     }
     TrackISS = () => {
@@ -22,8 +25,8 @@ class ISSLocation extends React.Component{
         .then(res => res.json())
         .then(data => {
             this.state.pastISSLocation.push(this.ISSLocation)
-            const latitude = parseInt(data.iss_position.latitude, 10)
-            const longitude = parseInt(data.iss_position.longitude, 10)
+            const latitude = parseInt(data.iss_position.latitude, 10);
+            const longitude = parseInt(data.iss_position.longitude, 10) - this.state.longitudeScale;
             this.setState({ISSlocation: [longitude, latitude]})
             console.log(this.state.ISSlocation)
         })
@@ -36,8 +39,11 @@ class ISSLocation extends React.Component{
             () => this.TrackISS(),
             10000
         );
-        const map = document.getElementsByClassName('rsm-sphere');
-        this.setState({mapDimensions: [map.clientWidth, map.clientHeight]})
+        const mapRect = document.getElementsByClassName('rsm-sphere')[0].getBoundingClientRect();
+        const mapCenter = [(mapRect.bottom - mapRect.top) / 2, (mapRect.right - mapRect.left)/2]
+        this.setState({mapDimensions: [mapRect.width, mapRect.height]})
+        this.setState({mapCenter: mapCenter})
+
     };
 
     componentWillUnmount() {
@@ -47,6 +53,7 @@ class ISSLocation extends React.Component{
     handleClick = (e) => {
         e.preventDefault();
         console.log(e.clientX + " " + e.clientY);
+        //TODO Map clicks to lat and long coordinates 
     };
 
     render(){
@@ -70,9 +77,11 @@ class ISSLocation extends React.Component{
                             )
                         }
                     </Geographies>
-                    <Marker key={"ISS"} coordinates={this.state.ISSlocation} >
-                        <SpaceShip className="space-ship"/>
-                    </Marker>
+                    {
+                        <Marker key={"ISS"} coordinates={this.state.ISSlocation} >
+                            <SpaceShip className="space-ship"/>
+                        </Marker>
+                    }
                 </ComposableMap>
             </div>
         )

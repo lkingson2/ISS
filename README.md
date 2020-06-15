@@ -16,12 +16,13 @@ npm start
 
 This application uses the http://api.open-notify.org/ to get the location of the Internation Space Station as well as the current astronauts in space.
 
-I use a d3 map to visualize the current location of the ISS in real time. Next to that I provide a list of all the current astronauts at the ISS that when clicked on will redirect you to their wikipedia page. (Except for Anatoly Ivanishnin who's name is mispelled)
+I use a react-simple-maps to visualize the current location of the ISS in real time. Next to that I provide a list of all the current astronauts at the ISS that when clicked on will redirect you to their wikipedia page. (Except for Anatoly Ivanishnin who's name is mispelled)
 
 
 ### Future Steps
 
-I have a few ideas for ways to improve this application
+I have a few ideas for ways to build on application
 
-- Let the user input  on the map to show when the ISS will be at that location.
-- Scrape certain websites to give updates on future space missions. 
+- Have a form where the user can input a latitude and longtude coordinate to see when the ISS will visible in that location.
+- Have the map be clickable allowing the user to add markers to see when the ISS will be visible in that location
+- Scrape websites (NASA, SpaceX, etc) and provide information about future launches and space missions. 
