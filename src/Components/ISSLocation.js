@@ -1,10 +1,13 @@
 import React from 'react';
 import { ComposableMap, Geographies, Geography, Marker, Sphere } from "react-simple-maps";
-import {ReactComponent as SpaceShip} from '../Media/space-shuttle.svg'
+// import {ReactComponent as SpaceShip} from '../Media/space-shuttle.svg'
+// import SpaceShipPNG from '../Media/space-shuttle.png';
 
 import './ISS.css'
 
-const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json"
+
+const geoUrl =
+  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 class ISSLocation extends React.Component{
 
@@ -26,11 +29,6 @@ class ISSLocation extends React.Component{
             this.state.pastISSLocation.push(this.ISSLocation)
             const latitude = parseFloat(data.iss_position.latitude, 10);
             var longitude = parseFloat(data.iss_position.longitude, 10);
-            // Longtitude coordinates are mapped to the wrong location roughly 55 degrees to the right
-            // Hacky work around to temporarily fix problem.
-            if(longitude>= -125){
-                longitude-=55;
-            }
             this.setState({ISSlocation: [longitude, latitude]})
             console.log(this.state.ISSlocation)
         })
@@ -66,9 +64,8 @@ class ISSLocation extends React.Component{
                 <ComposableMap  
                 projectionConfig={{
                     scale: 147,
-                    rotate: [0, 0, 0]
                 }}>
-                    <Sphere stroke="#E4E5E6" strokeWidth={1} fill="#2da1db" onClick={this.handleClick}/>
+                    <Sphere stroke="#E4E5E6" strokeWidth={1} fill="#2da1db"/>
                     <Geographies geography={geoUrl} >
                         {({ geographies }) =>
                             geographies.map(geo => 
@@ -83,7 +80,8 @@ class ISSLocation extends React.Component{
                     </Geographies>
                     {
                         <Marker key={"ISS"} coordinates={this.state.ISSlocation} >
-                            <SpaceShip className="space-ship"/>
+                            <circle r={10} fill="black" stroke="#fff" strokeWidth={2} />
+                            {/* <SpaceShip/> */}
                         </Marker>
                     }
                 </ComposableMap>

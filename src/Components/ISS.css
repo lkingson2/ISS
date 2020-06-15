@@ -3,6 +3,11 @@
     border-width: 5px;
 }
 
-.spach-ship{
+.space-ship{
     fill:black;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
 }
