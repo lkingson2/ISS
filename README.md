@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Kaplan Labs Coding Test
+### ISS web app
 
 ## Installation
 
